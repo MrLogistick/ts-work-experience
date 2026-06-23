@@ -2,13 +2,23 @@ import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: Home })
 
-function Home() {
+export const UIElement = () => {
   return (
-    <div className="p-8">
-      <h1 className="text-4xl font-bold">Welcome to TanStack Start</h1>
-      <p className="mt-4 text-lg">
-        Edit <code>src/routes/index.tsx</code> to get started.
-      </p>
+    <div>
+      Hello
     </div>
   )
 }
+
+function Home() {
+  return (
+    <>
+    <div className='flex flex-row space-x-3 h-svh mx-1'>
+      <div className='w-1/3 border'>hello</div>
+      <div className='max-w-full border grow'>Hello</div>
+    </div>
+    </>
+  )
+}
+
+

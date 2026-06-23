@@ -1,0 +1,12 @@
+allowBuilds:
+  esbuild: false
+
+minimumReleaseAge: 7200
+
+onlyBuiltDependencies:
+  - "@tailwindcss/oxide"
+  - core-js-pure
+  - esbuild
+  - eslint
+  - sharp
+  - worked
