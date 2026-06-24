@@ -12,7 +12,7 @@ const Button = ({ children }: { children: React.ReactNode }) => {
 
 const SideBar = () => {
   return (
-    <div className="w-1/3 border text-center">
+    <div className="w-1/3 border-r text-center">
       pic or wtv
     </div>
   )
@@ -20,7 +20,7 @@ const SideBar = () => {
 
 const Title = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-full border">
+    <div className="flex flex-col justify-center items-center w-full">
       <div className="text-center mb-20">
         <h1 className="text-8xl font-bold">Title</h1>
         <h2 className="text-2xl font-semibold">Subtitle</h2>
@@ -39,7 +39,7 @@ const Title = () => {
 function Home() {
   return (
     <>
-      <div className="flex space-x-3 h-svh mx-1">
+      <div className="flex h-svh">
         <SideBar/>
         <Title/>
       </div>
