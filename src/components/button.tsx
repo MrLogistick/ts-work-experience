@@ -23,9 +23,9 @@ export const Button = ({
 export const TitleButton = ({
   children,
   className,
-  onClick
+  onClick,
 }: {
-  children: React.ReactNode,
+  children: React.ReactNode;
   className?: string;
   onClick?: () => void;
 }) => {
@@ -37,5 +37,5 @@ export const TitleButton = ({
     >
       {children}
     </button>
-  )
-}
+  );
+};
