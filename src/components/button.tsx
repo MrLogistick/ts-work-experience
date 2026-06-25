@@ -12,7 +12,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={`border-2 h-20 w-20 items-center justify-center flex hover:cursor-pointer ${className}`}
+      className={`border-2 h-20 w-20 rounded-lg items-center justify-center flex hover:cursor-pointer ${className}`}
       onClick={onClick}
     >
       {children}

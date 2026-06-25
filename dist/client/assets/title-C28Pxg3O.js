@@ -1,0 +1,1 @@
+import{t as e}from"./index-D16CiQrd.js";var t=e(),n=({children:e,className:n})=>(0,t.jsx)(`h1`,{className:`text-4xl font-bold text-center ${n}`,children:e});export{n as t};

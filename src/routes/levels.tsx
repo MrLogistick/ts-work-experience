@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { Button } from "../components/button";
+import { Dialog } from "../components/dialog";
 import { Title } from "../components/title";
 import { z } from "zod"
 import { useState } from "react";
@@ -115,6 +117,7 @@ function Levels() {
         <Title>Levels</Title>
       </div>
       <div className="flex flex-row justify-evenly items-center">
+<<<<<<< HEAD
         <Button onClick={() => setLevel(demoData[0])}>Level 1</Button>
         <Button onClick={() => setLevel(demoData[1])}>Level 2</Button>
         <Button onClick={() => setLevel(demoData[2])}>Level 3</Button>
@@ -124,6 +127,24 @@ function Levels() {
         <Button onClick={() => setLevel(demoData[6])}>Locked</Button>
       </div>
       <p>{level && level.description}</p>
+=======
+        {levels.map((level) => (
+          <Button key={level} onClick={() => setSelectedLevel(level)}>
+            {level}
+          </Button>
+        ))}
+      </div>
+      <Dialog
+        ariaLabel={selectedLevel ? `${selectedLevel} details` : "Level details"}
+        isOpen={selectedLevel !== null}
+        onClose={() => setSelectedLevel(null)}
+        className="h-2/3 w-full mx-72"
+      >
+        <div className="justify-self-center">
+          Placeholder content for {selectedLevel}
+        </div>
+      </Dialog>
+>>>>>>> 371f8d0 (pre-rebase)
     </div>
   );
 }
