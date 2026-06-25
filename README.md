@@ -216,3 +216,28 @@ https://react.dev/learn
 https://www.typescriptlang.org/docs/
 - Interfaces
 - Types
+
+sebastian lague
+
+# Stretch Goal
+- Finalise Styling on all pages
+- Fill out skill tree with Correct nodes
+- Set node "active" status correctly
+- Unselect a node
+- Default additonal info message at bottom of skill tree
+- Credits page - contact info
+- Import all assets for level page
+- Animations
+- Background consider creating custom background image
+- Whole site theming - Changing button colours, text, etc.
+
+# Further Learning
+- Web Dev paths
+  - Find a good learning platform
+  - LeetCode - maybe
+- Projects
+  - Web Crawler - if continuing web dev
+  - Pick large platform creation project as a go to for learning a new language
+  - Pick complex projects with low time investment
+  - Try everything: Data Science, web dev, games, desktop development ...
+  APIs

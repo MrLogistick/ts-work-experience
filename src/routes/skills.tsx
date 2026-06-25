@@ -36,6 +36,9 @@ import {
 } from "../components/skill-tree";
 import { Title } from "../components/title";
 import { Button } from "#/components/button";
+import { getRouter } from "../router"
+
+const router = getRouter();
 
 type SkillTreeRouteNode = {
   title: string;
@@ -384,7 +387,10 @@ function Skills() {
       </div>
       <div className="flex flex-row items-center">
         <div className="flex items-center justify-center w-50 mb-3.5">
-          <Button className="rounded-3xl border-white/25 bg-zinc-950/70 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/14 h-14! w-20! ml-4">
+          <Button
+            className="rounded-3xl border-white/25 bg-zinc-950/70 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/14 h-14! w-20! ml-4"
+            onClick={() => router.navigate({ to: "/" })}
+          >
             Back
           </Button>
         </div>

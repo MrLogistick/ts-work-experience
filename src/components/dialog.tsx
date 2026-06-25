@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import { DoorOpen } from "lucide-react";
 
 type DialogProps = {

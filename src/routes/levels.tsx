@@ -14,6 +14,7 @@ const zodDataSchema = z.object({
   description: z.string(),
   learnings: z.string().array(),
   difficulty: z.number().int().min(1).max(5),
+  label: z.number().int()
 });
 type zodData = z.infer<typeof zodDataSchema>;
 
@@ -29,18 +30,19 @@ const demoData: zodData[] = [
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 1,
+    label: 1
   },
   {
     title: "Space Farm",
     description: `
       Survive the void of space by balancing resources and scraping by to finally grow
       a potato to live off of.
-
       Space Farm is yet another uncomplete prototype although of a resource management game
-      made in 1 day for the Devs Thjat Jam 14 game jam.
+      made in 1 day for the Devs That Jam 14 game jam.
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 3,
+    label: 2
   },
   {
     title: "The Forest Cycle",
@@ -55,6 +57,7 @@ const demoData: zodData[] = [
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 2,
+    label: 3
   },
   {
     title: "Rolled",
@@ -68,6 +71,7 @@ const demoData: zodData[] = [
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 3,
+    label: 4
   },
   {
     title: "Space Wave",
@@ -83,6 +87,7 @@ const demoData: zodData[] = [
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 4,
+    label: 5
   },
   {
     title: "Tankinator",
@@ -94,6 +99,7 @@ const demoData: zodData[] = [
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 3,
+    label: 6
   },
   {
     title: "Cannon Fire",
@@ -106,6 +112,7 @@ const demoData: zodData[] = [
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 5,
+    label: 7
   },
 ];
 
@@ -130,18 +137,56 @@ const demoData: zodData[] = [
 //     </div>
 //   );
 // }
-const levelLabels = [
-  "Level 1",
-  "Level 2",
-  "Level 3",
-  "Level 4",
-  "Level 5",
-  "Level 6",
-  "Locked",
-] as const;
+
+const Description = ({ description, stars }: { description: string, stars: number }) => {
+    return (
+        <div className="flex flex-col w-full">
+            {/* description and difficulty */}
+            <div className="border max-h-10 text-start px-2 overflow-y-scroll">{description}</div>
+            <div className="border aspect-5/1 mt-3 text-center">{stars}</div>
+        </div>
+    )
+}
+
+const Screenshots = ({ screenshots }: { screenshots: string[] }) => {
+    return (
+        <div className="grid grid-cols-2 grid-flow-row w-full gap-1">
+            {/* images and screenshots */}
+            {/* {screenshots.map((screenshot) => (
+                <div>
+                    <img src={screenshot} />
+                </div>
+            ))} */}
+            <div className="border aspect-video text-center mb-3 col-span-2">SCREENSHOT</div>
+            <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
+            <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
+            <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
+            <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
+        </div>
+    )
+}
+
+const Links = ({ learnings }: { learnings: string[] }) => {
+    return (
+        <div className="flex flex-col w-full">
+            {/* learnings and external links */}
+            <div className="border h-full text-center">{learnings}</div>
+            <div className="border aspect-5/1 mt-3 text-center">DIFFICULTY STARS</div>
+        </div>
+    )
+}
 
 function Levels() {
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [selectedLevel, setSelectedLevel] = useState<zodData | null>(null)
+
+  const handleSelectLevel = (levelIdx: number) => {
+    setSelectedLevel(demoData[levelIdx])
+    setDialogOpen(true)
+  }
+
   return (
+    <div>
     <div className="flex h-full min-h-0 flex-col gap-6 overflow-hidden p-6 text-white sm:p-8">
       <div className="mx-auto rounded-3xl border border-white/10 bg-black/35 px-6 py-4 backdrop-blur-sm w-44 justify-self-center">
         <Title className="text-white w-32">Levels</Title>
@@ -149,17 +194,33 @@ function Levels() {
       <div className="flex min-h-0 grow items-center justify-center pb-32">
         <div className="w-full max-w-6xl rounded-4xl border border-white/10 bg-black/30 p-6 shadow-[0_24px_90px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:p-8">
           <div className="flex flex-wrap items-center justify-evenly gap-4">
-            {levelLabels.map((levelLabel) => (
+            {demoData.map((level) => (
               <Button
-                key={levelLabel}
+                key={level.label - 1}
                 className="rounded-2xl border-white/25 bg-white/8 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/14"
+                onClick={() => handleSelectLevel(level.label - 1)}
               >
-                {levelLabel}
+                Level {level.label}
               </Button>
             ))}
           </div>
         </div>
       </div>
+    </div>
+      <Dialog 
+        isOpen={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        className="flex flex-col border max-w-5xl h-3/4 text-black"
+        >
+            <Title>{selectedLevel?.title}</Title>
+            <div className="border w-1/2 mx-auto"></div>
+            <Title className="font-light text-lg">Level {selectedLevel?.label}</Title>
+            <div className="flex flex-row max-w-full grow mb-3 max-h-full mx-3 p-1 space-x-3">
+                <Description description={selectedLevel?.description ?? ""} stars={selectedLevel?.difficulty ?? 0}/>
+                <Screenshots screenshots={[""]}/>
+                <Links learnings={selectedLevel?.learnings ?? [""]}/>
+            </div>
+        </Dialog>
     </div>
   );
 }

@@ -116,10 +116,15 @@ const Description = () => {
     )
 }
 
-const Screenshots = () => {
+const Screenshots = ({ screenshots }: { screenshots: string[] }) => {
     return (
         <div className="grid grid-cols-2 grid-flow-row w-full gap-1">
             {/* images and screenshots */}
+            {screenshots.map((screenshot) => (
+                <div>
+                    <img src={screenshot} />
+                </div>
+            ))}
             <div className="border aspect-video text-center mb-3 col-span-2">SCREENSHOT</div>
             <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
             <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
@@ -153,7 +158,7 @@ function Dialog() {
             <Title className="font-light text-lg">Level {levelNumber}</Title>
             <div className="flex flex-row max-w-full grow mb-3 max-h-full mx-3 p-1 space-x-3">
                 <Description/>
-                <Screenshots/>
+                <Screenshots screenshots={[""]}/>
                 <Links/>
             </div>
         </div>
