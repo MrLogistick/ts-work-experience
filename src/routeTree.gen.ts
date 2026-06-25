@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as LevelsRouteImport } from './routes/levels'
+import { Route as DialogRouteImport } from './routes/dialog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiTrpcSplatRouteImport } from './routes/api.trpc.$'
 
@@ -22,6 +23,11 @@ const SkillsRoute = SkillsRouteImport.update({
 const LevelsRoute = LevelsRouteImport.update({
   id: '/levels',
   path: '/levels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DialogRoute = DialogRouteImport.update({
+  id: '/dialog',
+  path: '/dialog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,12 +43,14 @@ const ApiTrpcSplatRoute = ApiTrpcSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dialog': typeof DialogRoute
   '/levels': typeof LevelsRoute
   '/skills': typeof SkillsRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dialog': typeof DialogRoute
   '/levels': typeof LevelsRoute
   '/skills': typeof SkillsRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dialog': typeof DialogRoute
   '/levels': typeof LevelsRoute
   '/skills': typeof SkillsRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/levels' | '/skills' | '/api/trpc/$'
+  fullPaths: '/' | '/dialog' | '/levels' | '/skills' | '/api/trpc/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/levels' | '/skills' | '/api/trpc/$'
-  id: '__root__' | '/' | '/levels' | '/skills' | '/api/trpc/$'
+  to: '/' | '/dialog' | '/levels' | '/skills' | '/api/trpc/$'
+  id: '__root__' | '/' | '/dialog' | '/levels' | '/skills' | '/api/trpc/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DialogRoute: typeof DialogRoute
   LevelsRoute: typeof LevelsRoute
   SkillsRoute: typeof SkillsRoute
   ApiTrpcSplatRoute: typeof ApiTrpcSplatRoute
@@ -85,6 +95,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LevelsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dialog': {
+      id: '/dialog'
+      path: '/dialog'
+      fullPath: '/dialog'
+      preLoaderRoute: typeof DialogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DialogRoute: DialogRoute,
   LevelsRoute: LevelsRoute,
   SkillsRoute: SkillsRoute,
   ApiTrpcSplatRoute: ApiTrpcSplatRoute,

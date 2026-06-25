@@ -4,8 +4,8 @@ import { Title } from "../components/title";
 import { z } from "zod"
 import { useState } from "react";
 
-export const Route = createFileRoute("/levels")({
-  component: Levels,
+export const Route = createFileRoute("/dialog")({
+  component: Dialog,
 });
 
 const zodDataSchema = z.object({
@@ -106,24 +106,57 @@ const demoData: zodData[] = [
   },
 ]
 
-function Levels() {
-  const [level, setLevel] = useState<zodData | null>(null)
+const Description = () => {
+    return (
+        <div className="flex flex-col w-full">
+            {/* description and difficulty */}
+            <div className="border h-full text-center">DESCRIPTION</div>
+            <div className="border aspect-5/1 mt-3 text-center">DIFFICULTY STARS</div>
+        </div>
+    )
+}
 
-  return (
-    <div className="flex flex-col h-full justify-center space-y-10">
-      <div className="items-center justify-center flex">
-        <Title>Levels</Title>
-      </div>
-      <div className="flex flex-row justify-evenly items-center">
-        <Button onClick={() => setLevel(demoData[0])}>Level 1</Button>
-        <Button onClick={() => setLevel(demoData[1])}>Level 2</Button>
-        <Button onClick={() => setLevel(demoData[2])}>Level 3</Button>
-        <Button onClick={() => setLevel(demoData[3])}>Level 4</Button>
-        <Button onClick={() => setLevel(demoData[4])}>Level 5</Button>
-        <Button onClick={() => setLevel(demoData[5])}>Level 6</Button>
-        <Button onClick={() => setLevel(demoData[6])}>Locked</Button>
-      </div>
-      <p>{level && level.description}</p>
-    </div>
-  );
+const Screenshots = () => {
+    return (
+        <div className="grid grid-cols-2 grid-flow-row w-full gap-1">
+            {/* images and screenshots */}
+            <div className="border aspect-video text-center mb-3 col-span-2">SCREENSHOT</div>
+            <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
+            <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
+            <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
+            <div className="border aspect-video text-center mb-3">SCREENSHOT</div>
+        </div>
+    )
+}
+
+const Links = () => {
+    return (
+        <div className="flex flex-col w-full">
+            {/* learnings and external links */}
+            <div className="border h-full text-center">LEARNINGS</div>
+            <div className="border aspect-5/1 mt-3 text-center">DIFFICULTY STARS</div>
+        </div>
+    )
+}
+
+function Dialog() {
+    const currentItem = 0
+    const displayItem = demoData[currentItem]
+    const levelNumber = currentItem + 1
+
+    return (
+        <div className="flex flex-col h-full justify-center">
+        <div className="flex flex-col border max-w-full aspect-59.5/30 mx-72">
+
+            <Title>{displayItem.title}</Title>
+            <div className="border w-1/2 mx-auto"></div>
+            <Title className="font-light text-lg">Level {levelNumber}</Title>
+            <div className="flex flex-row max-w-full grow mb-3 max-h-full mx-3 p-1 space-x-3">
+                <Description/>
+                <Screenshots/>
+                <Links/>
+            </div>
+        </div>
+        </div>
+    );
 }
