@@ -132,11 +132,9 @@ const MarsBaseBackground = () => {
 				viewBox="0 0 160 90"
 			>
 				<rect width="160" height="90" fill="#130d14" />
-				<rect width="160" height="10" y="8" fill="#1d1220" />
-				<rect width="160" height="12" y="18" fill="#2a1730" />
-				<rect width="160" height="14" y="30" fill="#452036" />
-				<rect width="160" height="14" y="44" fill="#69303a" />
-				<rect width="160" height="10" y="58" fill="#a14e3f" />
+				<rect width="160" height="18" y="10" fill="#21131f" />
+				<rect width="160" height="18" y="28" fill="#4a2433" />
+				<rect width="160" height="22" y="46" fill="#9d4f42" />
 				<rect width="160" height="22" y="68" fill="#7d392f" />
 				{marsStars.map((star) => (
 					<rect
@@ -148,13 +146,12 @@ const MarsBaseBackground = () => {
 						y={star.y}
 					/>
 				))}
-				<rect fill="#f7d07c" height="2" width="12" x="120" y="10" />
-				<rect fill="#f7d07c" height="2" width="16" x="118" y="12" />
-				<rect fill="#f7d07c" height="2" width="18" x="117" y="14" />
-				<rect fill="#f1a35d" height="4" width="20" x="116" y="16" />
-				<rect fill="#f1a35d" height="2" width="18" x="117" y="20" />
-				<rect fill="#f1a35d" height="2" width="16" x="118" y="22" />
-				<rect fill="#f1a35d" height="2" width="12" x="120" y="24" />
+				<rect fill="#f7d07c" height="1" width="6" x="123" y="12" />
+				<rect fill="#f7d07c" height="1" width="8" x="122" y="13" />
+				<rect fill="#f1a35d" height="2" width="10" x="121" y="14" />
+				<rect fill="#f1a35d" height="2" width="10" x="121" y="16" />
+				<rect fill="#f1a35d" height="1" width="8" x="122" y="18" />
+				<rect fill="#f1a35d" height="1" width="6" x="123" y="19" />
 				<rect fill="#572232" height="10" width="18" x="0" y="50" />
 				<rect fill="#572232" height="14" width="18" x="10" y="46" />
 				<rect fill="#572232" height="18" width="18" x="24" y="42" />
@@ -168,67 +165,68 @@ const MarsBaseBackground = () => {
 				<rect fill="#793531" height="10" width="28" x="128" y="58" />
 				<rect fill="#b55e46" height="4" width="160" x="0" y="68" />
 				<rect fill="#8f4537" height="18" width="160" x="0" y="72" />
-				<rect fill="#dce0db" height="2" width="8" x="48" y="58" />
-				<rect fill="#dce0db" height="2" width="12" x="46" y="60" />
-				<rect fill="#dce0db" height="2" width="16" x="44" y="62" />
-				<rect fill="#c8cdca" height="6" width="20" x="42" y="64" />
-				<rect fill="#a7afaf" height="6" width="2" x="60" y="64" />
-				<rect fill="#bcc2c0" height="2" width="4" x="62" y="64" />
-				<rect fill="#dce0db" height="14" width="30" x="64" y="56" />
-				<rect fill="#edf1eb" height="2" width="30" x="64" y="56" />
-				<rect fill="#a7afaf" height="14" width="2" x="92" y="56" />
-				{marsWindowOffsets.map((window) => (
-					<rect
-						key={`${window.x}-${window.y}`}
-						fill="#76b7ff"
-						height="2"
-						width="2"
-						x={window.x}
-						y={window.y}
-					/>
-				))}
-				<rect fill="#d1d6d3" height="4" width="10" x="94" y="52" />
-				<rect fill="#c4cac7" height="14" width="8" x="95" y="56" />
-				<rect fill="#b0b7b6" height="18" width="6" x="96" y="48" />
-				<rect fill="#e6ebe6" height="4" width="4" x="97" y="44" />
-				<rect fill="#c8cdca" height="4" width="2" x="98" y="40" />
-				<rect fill="#f08b62" height="2" width="2" x="98" y="38" />
-				<rect fill="#dce0db" height="2" width="8" x="106" y="58" />
-				<rect fill="#dce0db" height="2" width="12" x="104" y="60" />
-				<rect fill="#dce0db" height="2" width="16" x="102" y="62" />
-				<rect fill="#c8cdca" height="6" width="20" x="100" y="64" />
-				<rect fill="#a7afaf" height="6" width="2" x="118" y="64" />
-				<rect fill="#d4ae71" height="2" width="6" x="74" y="70" />
-				<rect fill="#d4ae71" height="2" width="10" x="88" y="70" />
-				<rect fill="#314764" height="4" width="14" x="28" y="70" />
-				<rect fill="#314764" height="4" width="14" x="118" y="70" />
-				{solarPanelColumns.map((offset) => (
-					<rect
-						key={`left-panel-${offset}`}
-						fill="#79b8ff"
-						height="1"
-						width="2"
-						x={29 + offset}
-						y="71"
-					/>
-				))}
-				{solarPanelColumns.map((offset) => (
-					<rect
-						key={`right-panel-${offset}`}
-						fill="#79b8ff"
-						height="1"
-						width="2"
-						x={119 + offset}
-						y="71"
-					/>
-				))}
-				<rect fill="#5b6162" height="4" width="2" x="34" y="74" />
-				<rect fill="#5b6162" height="4" width="2" x="124" y="74" />
-				<rect fill="#d6d0c8" height="3" width="8" x="110" y="76" />
-				<rect fill="#bcae9e" height="2" width="4" x="112" y="74" />
-				<rect fill="#6b5443" height="2" width="2" x="111" y="79" />
-				<rect fill="#6b5443" height="2" width="2" x="116" y="79" />
-				<rect fill="#5b2a25" height="2" width="6" x="18" y="78" />
+				<g transform="translate(16 0)">
+					<rect fill="#dce0db" height="2" width="8" x="48" y="58" />
+					<rect fill="#dce0db" height="2" width="12" x="46" y="60" />
+					<rect fill="#dce0db" height="2" width="16" x="44" y="62" />
+					<rect fill="#c8cdca" height="6" width="20" x="42" y="64" />
+					<rect fill="#a7afaf" height="6" width="2" x="60" y="64" />
+					<rect fill="#bcc2c0" height="2" width="4" x="62" y="64" />
+					<rect fill="#dce0db" height="14" width="30" x="64" y="56" />
+					<rect fill="#edf1eb" height="2" width="30" x="64" y="56" />
+					<rect fill="#a7afaf" height="14" width="2" x="92" y="56" />
+					{marsWindowOffsets.map((window) => (
+						<rect
+							key={`${window.x}-${window.y}`}
+							fill="#76b7ff"
+							height="2"
+							width="2"
+							x={window.x}
+							y={window.y}
+						/>
+					))}
+					<rect fill="#d1d6d3" height="4" width="10" x="94" y="52" />
+					<rect fill="#c4cac7" height="14" width="8" x="95" y="56" />
+					<rect fill="#b0b7b6" height="18" width="6" x="96" y="48" />
+					<rect fill="#e6ebe6" height="4" width="4" x="97" y="44" />
+					<rect fill="#c8cdca" height="4" width="2" x="98" y="40" />
+					<rect fill="#f08b62" height="2" width="2" x="98" y="38" />
+					<rect fill="#dce0db" height="2" width="8" x="106" y="58" />
+					<rect fill="#dce0db" height="2" width="12" x="104" y="60" />
+					<rect fill="#dce0db" height="2" width="16" x="102" y="62" />
+					<rect fill="#c8cdca" height="6" width="20" x="100" y="64" />
+					<rect fill="#a7afaf" height="6" width="2" x="118" y="64" />
+					<rect fill="#d4ae71" height="2" width="6" x="74" y="70" />
+					<rect fill="#d4ae71" height="2" width="10" x="88" y="70" />
+					<rect fill="#314764" height="4" width="14" x="28" y="70" />
+					<rect fill="#314764" height="4" width="14" x="118" y="70" />
+					{solarPanelColumns.map((offset) => (
+						<rect
+							key={`left-panel-${offset}`}
+							fill="#79b8ff"
+							height="1"
+							width="2"
+							x={29 + offset}
+							y="71"
+						/>
+					))}
+					{solarPanelColumns.map((offset) => (
+						<rect
+							key={`right-panel-${offset}`}
+							fill="#79b8ff"
+							height="1"
+							width="2"
+							x={119 + offset}
+							y="71"
+						/>
+					))}
+					<rect fill="#5b6162" height="4" width="2" x="34" y="74" />
+					<rect fill="#5b6162" height="4" width="2" x="124" y="74" />
+					<rect fill="#d6d0c8" height="3" width="8" x="110" y="76" />
+					<rect fill="#bcae9e" height="2" width="4" x="112" y="74" />
+					<rect fill="#6b5443" height="2" width="2" x="111" y="79" />
+					<rect fill="#6b5443" height="2" width="2" x="116" y="79" />
+				</g>
 				<rect fill="#5b2a25" height="2" width="10" x="58" y="82" />
 				<rect fill="#5b2a25" height="2" width="8" x="136" y="80" />
 			</svg>
