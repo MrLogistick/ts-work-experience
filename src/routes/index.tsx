@@ -1,49 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TitleButton } from "../components/button"
-import { getRouter } from "../router"
+import { TitleButton } from "../components/button";
+import { getRouter } from "../router";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 const router = getRouter();
 
-const SideBar = () => {
-  return (
-    <div className="flex flex-col w-1/3 text-center z-0">
-      <div className="rounded-full aspect-square w-2/1 -translate-x-1/3 -translate-y-1/2 bg-[#006472]"/>
-      <div className="border z-10">
-        credits
-      </div>
-    </div>
-  )
-};
-
 // const gradientClass = "bg-linear-to-l from-[#49C5B1] to-[#002858]"
 // bg-linear-to-l to-[#49C5B1] from-[#011A38] from-72% to-80%
 
 const Title = () => {
-  return (
-    <div className="flex flex-col justify-center items-center w-full z-20 text-white bg-linear-to-l from-[#0D006C] to-transparent from-90%">
-      <div className="text-center mb-20">
-        <h1 className="text-8xl font-bold">Logan Wurst</h1>
-        <h2 className="text-2xl font-semibold -translate-y-3">Blah Blah funny joke</h2>
-      </div>
-      <div className="flex flex-col items-center gap-4">
-        <TitleButton>Start</TitleButton>
-        <TitleButton onClick={() => router.navigate({ to: "/levels" })}>Level Select</TitleButton>
-        <TitleButton>Statistics</TitleButton>
-        <TitleButton onClick={() => router.navigate({ to: "/skills" })}>Skills</TitleButton>
-      </div>
-    </div>
-  )
+	return (
+		<div className="z-20 h-full w-full -translate-x-14 -translate-y-10 text-white sm:-translate-y-12">
+			<div className="flex h-full w-full max-w-4xl flex-col justify-center px-8 sm:px-16 lg:px-24">
+				<div className="flex flex-col items-center gap-20">
+					<div className="text-center">
+						<h1 className="text-8xl font-bold">Logan Wurst</h1>
+						<h2 className="-translate-y-3 text-2xl font-semibold">
+							Blah Blah funny joke
+						</h2>
+					</div>
+					<div className="flex flex-col items-center gap-4">
+						<TitleButton>Start</TitleButton>
+						<TitleButton onClick={() => router.navigate({ to: "/levels" })}>
+							Level Select
+						</TitleButton>
+						<TitleButton>Statistics</TitleButton>
+						<TitleButton onClick={() => router.navigate({ to: "/skills" })}>
+							Skills
+						</TitleButton>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 function Home() {
-  return (
-    <>
-      <div className="flex h-svh bg-[#005F6C]">
-        <SideBar/>
-        <Title/>
-      </div>
-    </>
-  );
+	return (
+		<div className="h-full min-h-0 overflow-hidden">
+			<Title />
+		</div>
+	);
 }
