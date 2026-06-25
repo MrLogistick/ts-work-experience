@@ -219,6 +219,8 @@ https://www.typescriptlang.org/docs/
 
 sebastian lague
 
+excalidraw
+
 # Stretch Goal
 - Finalise Styling on all pages
 - Fill out skill tree with Correct nodes
@@ -241,3 +243,4 @@ sebastian lague
   - Pick complex projects with low time investment
   - Try everything: Data Science, web dev, games, desktop development ...
   APIs
+  - Build a neural network
