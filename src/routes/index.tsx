@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TitleButton } from "../components/button"
+import { getRouter } from "../router"
 
 export const Route = createFileRoute("/")({ component: Home });
+
+const router = getRouter();
 
 const SideBar = () => {
   return (
@@ -26,9 +29,9 @@ const Title = () => {
       </div>
       <div className="flex flex-col items-center gap-4">
         <TitleButton>Start</TitleButton>
-        <TitleButton>Level Select</TitleButton>
+        <TitleButton onClick={() => router.navigate({ to: "/levels" })}>Level Select</TitleButton>
         <TitleButton>Statistics</TitleButton>
-        <TitleButton>Skills</TitleButton>
+        <TitleButton onClick={() => router.navigate({ to: "/skills" })}>Skills</TitleButton>
       </div>
     </div>
   )
