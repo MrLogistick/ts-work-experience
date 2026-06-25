@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Button } from "../components/button";
-import { Title } from "../components/title";
-import { z } from "zod"
 import { useState } from "react";
+import { Button } from "../components/button";
+import { Dialog } from "../components/dialog";
+import { Title } from "../components/title";
+import { z } from "zod";
 
 export const Route = createFileRoute("/levels")({
   component: Levels,
@@ -12,9 +13,9 @@ const zodDataSchema = z.object({
   title: z.string(),
   description: z.string(),
   learnings: z.string().array(),
-  difficulty: z.number().int().min(1).max(5)
-})
-type zodData = z.infer<typeof zodDataSchema>
+  difficulty: z.number().int().min(1).max(5),
+});
+type zodData = z.infer<typeof zodDataSchema>;
 
 const demoData: zodData[] = [
   {
@@ -82,7 +83,8 @@ const demoData: zodData[] = [
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 4,
-  },  {
+  },
+  {
     title: "Tankinator",
     description: `
       You carry the last survivors of the battle, the battle you lost. There is one last mission,
@@ -92,7 +94,8 @@ const demoData: zodData[] = [
     `,
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 3,
-  },  {
+  },
+  {
     title: "Cannon Fire",
     description: `
       the land is too harsh for infantry anymore, no horserider can survive. It is the sole
@@ -104,10 +107,10 @@ const demoData: zodData[] = [
     learnings: ["I learnt A", "I learnt b"],
     difficulty: 5,
   },
-]
+];
 
 function Levels() {
-  const [level, setLevel] = useState<zodData | null>(null)
+  const [level, setLevel] = useState<zodData | null>(null);
 
   return (
     <div className="flex flex-col h-full justify-center space-y-10">
