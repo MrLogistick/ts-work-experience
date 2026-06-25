@@ -6,7 +6,7 @@ import { Title } from "../components/title";
 import { z } from "zod";
 
 export const Route = createFileRoute("/levels")({
-  component: Levels,
+	component: Levels,
 });
 
 const zodDataSchema = z.object({
@@ -129,4 +129,37 @@ function Levels() {
       <p>{level && level.description}</p>
     </div>
   );
-}
+  
+// const levelLabels = [
+// 	"Level 1",
+// 	"Level 2",
+// 	"Level 3",
+// 	"Level 4",
+// 	"Level 5",
+// 	"Level 6",
+// 	"Locked",
+// ] as const;
+
+// function Levels() {
+// 	return (
+// 		<div className="flex h-full min-h-0 flex-col gap-6 overflow-hidden p-6 text-white sm:p-8">
+// 			<div className="rounded-[1.5rem] border border-white/10 bg-black/35 px-6 py-4 backdrop-blur-sm">
+// 				<Title className="text-white">Levels</Title>
+// 			</div>
+// 			<div className="flex min-h-0 grow items-center justify-center">
+// 				<div className="w-full max-w-6xl rounded-[2rem] border border-white/10 bg-black/30 p-6 shadow-[0_24px_90px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:p-8">
+// 					<div className="flex flex-wrap items-center justify-center gap-4">
+// 						{levelLabels.map((levelLabel) => (
+// 							<Button
+// 								key={levelLabel}
+// 								className="rounded-2xl border-white/25 bg-white/8 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/14"
+// 							>
+// 								{levelLabel}
+// 							</Button>
+// 						))}
+// 					</div>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// }
